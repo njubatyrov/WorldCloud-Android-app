@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSupportZoom(true);
         webSettings.setUseWideViewPort(true);
-        webview.setWebViewClient(new WebViewClient());
+
+        webview.setWebChromeClient(new WebChromeClient());
         webview.setInitialScale(1);
 
         webview.setWebViewClient(new WebViewClient() {
@@ -36,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 int dataset[] = new int[] {5,10,15,20,35};
                 String text = Arrays.toString(dataset);
 
-                webview.loadUrl("javascript:initGraph(" + text + ", " + (webview.getHeight()) + ", " + (webview.getWidth()) + ")");
+                webview.loadUrl("javascript:initGraph(" +
+                        text + ", " + (webview.getHeight()) + ", " + (webview.getWidth()) + ")");
             }
         });
 
         // Load base html from the assets directory
         webview.loadUrl("file:///android_asset/html/graph.html");
-//        webview.loadUrl("https://www.google.com");
     }
 }
 
