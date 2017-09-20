@@ -26,9 +26,16 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSupportZoom(true);
         webSettings.setUseWideViewPort(true);
-
+        webSettings.setAllowFileAccess(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setAllowContentAccess(true);
+        webSettings.setAllowFileAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webview.setWebViewClient(new WebViewClient());
         webview.setWebChromeClient(new WebChromeClient());
+
         webview.setInitialScale(1);
+
 
         webview.setWebViewClient(new WebViewClient() {
             @Override
